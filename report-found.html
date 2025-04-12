@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Report Found Item</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: left;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #e0f7fa, #b2ebf2);
+            position: relative;
+        }
+
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 450px;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            max-width: 90%;
+        }
+
+        h2, h3 {
+            color: #2e7d32;
+            text-align: center;
+        }
+
+        label {
+            font-weight: 600;
+            color: #333;
+        }
+
+        input, select {
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            width: calc(100% - 24px);
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus, select:focus {
+            border-color: #4caf50;
+            outline: none;
+        }
+
+        button {
+            padding: 15px 20px;
+            font-size: 18px;
+            background: #4caf50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: #388e3c;
+        }
+
+        #successMessage {
+            display: none;
+            text-align: center;
+            padding: 20px;
+            background: #d4edda;
+            color: #155724;
+            border-radius: 10px;
+            margin-top: 20px;
+            font-size: 18px;
+            width: 450px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: opacity 0.5s ease;
+            opacity: 0;
+            max-width: 90%;
+        }
+
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 12px 20px;
+            font-size: 16px;
+            background: #424242;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: #212121;
+        }
+    </style>
+</head>
+<body>
+
+    <button class="back-button" onclick="window.location.href='dashboard.html'">⬅ Back</button>
+
+    <h2>Report Found Item</h2>
+
+    <form id="foundForm" onsubmit="showSuccessMessage(event)" class="form-container">
+        <label for="itemName">Item Name:</label>
+        <input type="text" id="itemName" name="itemName" required>
+
+        <label for="location">Location Found:</label>
+        <input type="text" id="location" name="location" required>
+
+        <label for="dateFound">Date Found:</label>
+        <input type="date" id="dateFound" name="dateFound" required>
+
+        <label for="uploadImage">Upload Image:</label>
+        <input type="file" id="uploadImage" name="uploadImage" required>
+
+        <label for="phoneNumber">Phone Number:</label>
+        <input type="tel" id="phoneNumber" name="phoneNumber" required>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <div id="successMessage">
+        <h3>🌟 Thank You for Your Honesty! 🌟</h3>
+        <p>Your kind gesture in reporting this item is truly appreciated.</p>
+        <p>Someone will be grateful for your help, and we will do our best to return it to the owner.</p>
+        <p>Keep making the world a better place! 💙</p>
+    </div>
+
+    <script>
+        function showSuccessMessage(event) {
+            event.preventDefault();
+
+            document.getElementById("foundForm").style.display = "none";
+            document.getElementById("successMessage").style.display = "block";
+
+            document.getElementById("successMessage").style.opacity = "0";
+            let opacity = 0;
+            let interval = setInterval(() => {
+                if (opacity < 1) {
+                    opacity += 0.1;
+                    document.getElementById("successMessage").style.opacity = opacity;
+                } else {
+                    clearInterval(interval);
+                }
+            }, 100);
+        }
+    </script>
+
+</body>
+</html>
