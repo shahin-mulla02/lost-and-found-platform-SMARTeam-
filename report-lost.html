@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Report Lost Item</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #e0f7fa, #b2ebf2);
+            position: relative;
+        }
+
+        .form-container, .security-section, .rewards-section {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 450px;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            max-width: 90%;
+        }
+
+        h2, h3 {
+            color: #2e7d32;
+            text-align: center;
+        }
+
+        label {
+            font-weight: 600;
+            color: #333;
+        }
+
+        input, select {
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            width: calc(100% - 24px);
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus, select:focus {
+            border-color: #4caf50;
+            outline: none;
+        }
+
+        button {
+            padding: 15px 20px;
+            font-size: 18px;
+            background: #4caf50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: #388e3c;
+        }
+
+        .security-section, .hope-message, .rewards-section, .secret-code-section {
+            display: none;
+        }
+
+        .hope-message {
+            font-size: 18px;
+            font-weight: 600;
+            color: #155724;
+            text-align: center;
+            padding: 20px;
+            background: #d4edda;
+            border-radius: 10px;
+            width: 450px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: opacity 0.5s ease;
+            opacity: 0;
+            max-width: 90%;
+        }
+
+        .show {
+            display: block;
+            opacity: 1;
+        }
+
+        .secret-code-section {
+            background: #f8d7da;
+            padding: 20px;
+            border-radius: 12px;
+            width: 450px;
+            text-align: center;
+            border: 2px solid #d9534f;
+            font-size: 16px;
+            font-weight: 600;
+            color: #721c24;
+            max-width: 90%;
+        }
+
+        .copy-btn {
+            background: #d9534f;
+            margin-top: 15px;
+        }
+
+        .copy-btn:hover {
+            background: #c9302c;
+        }
+
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 12px 20px;
+            font-size: 16px;
+            background: #424242;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: #212121;
+        }
+
+    </style>
+</head>
+<body>
+
+    <button class="back-button" onclick="window.location.href='dashboard.html'">⬅ Back</button>
+
+    <h2>📝 Report Lost Item</h2>
+
+    <div class="secret-code-section" id="secretCodeSection">
+        <p>Your Secret Code: <span id="secretCode"></span></p>
+        <p><small>⚠ Save this code! You need it to claim your lost item.</small></p>
+        <button class="copy-btn" onclick="copyCode()">📋 Copy Code</button>
+    </div>
+
+    <div class="form-container" id="lostItemForm">
+        <label>Item Name:</label>
+        <input type="text" id="itemName" required>
+
+        <label>Location Lost:</label>
+        <input type="text" id="location" required>
+
+        <label>Date Lost:</label>
+        <input type="date" id="dateLost" required>
+
+        <label>Upload Image:</label>
+        <input type="file" id="uploadImage" required>
+
+        <label>Phone Number:</label>
+        <input type="tel" id="phoneNumber" required>
+
+        <button type="button" onclick="showSecurityQuestions()">Submit</button>
+    </div>
+
+    <div class="security-section" id="securitySection">
+        <h2>🔐 Security Questions</h2>
+        <label>1️⃣ Item Color:</label>
+        <input type="text" id="answer1" required>
+
+        <label>2️⃣ Item Brand:</label>
+        <input type="text" id="answer2" required>
+
+        <label>3️⃣ Last Seen Location:</label>
+        <input type="text" id="answer3" required>
+
+        <button onclick="submitAnswers()">Submit Answers</button>
+    </div>
+
+    <p class="hope-message" id="hopeMessage">
+        🌟 <b>Your lost item report has been successfully submitted!</b> 🌟<br>
+        Stay hopeful! Our system will match reports, and you’ll be notified as soon as there’s a match.<br>
+        <b>We’ll do our best to bring your lost item back to you. 💙</b>
+    </p>
+
+    <div class="rewards-section" id="rewardsSection">
+        <h3>🎉 Offer a Reward! 🎉</h3>
+        <p>Encourage honesty! Offer a reward to the person who finds your lost item.</p>
+        <label for="rewardAmount">💰 Reward Amount (₹):</label>
+        <input type="number" id="rewardAmount" min="1" placeholder="Enter reward amount" required>
+        <button class="claim-button" onclick="submitReward()">Confirm Reward</button>
+    </div>
+
+    <script>
+        function showSecurityQuestions() {
+            document.getElementById("lostItemForm").style.display = "none";
+            document.getElementById("securitySection").style.display = "block";
+        }
+
+        function submitAnswers() {
+            let ans1 = document.getElementById("answer1").value.trim();
+            let ans2 = document.getElementById("answer2").value.trim();
+            let ans3 = document.getElementById("answer3").value.trim();
+
+            if (ans1 && ans2 && ans3) {
+                document.getElementById("securitySection").style.display = "none";
+                document.getElementById("hopeMessage").classList.add("show");
+                document.getElementById("rewardsSection").style.display = "block";
+
+                let secretCode = generateSecretCode();
+                document.getElementById("secretCode").textContent = secretCode;
+                document.getElementById("secretCodeSection").style.display = "block";
+            } else {
+                alert("❌ Please answer all security questions.");
+            }
+        }
+
+        function generateSecretCode() {
+            let characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            let code = "";
+            for (let i = 0; i < 8; i++) {
+                code += characters.charAt(Math.floor(Math.random() * characters.length));
+            }
+            return code;
+        }
+
+        function copyCode() {
+            let code = document.getElementById("secretCode").textContent;
+            navigator.clipboard.writeText(code);
+            alert("✅ Secret Code copied!");
+        }
+
+        function submitReward() {
+    const item = {
+        name: document.getElementById("itemName").value,
+        location: document.getElementById("location").value,
+        dateLost: document.getElementById("dateLost").value,
+        phoneNumber: document.getElementById("phoneNumber").value,
+        reward: document.getElementById("rewardAmount").value,
+        secretCode: document.getElementById("secretCode").textContent,
+        answers: {
+            color: document.getElementById("answer1").value,
+            brand: document.getElementById("answer2").value,
+            lastSeen: document.getElementById("answer3").value
+        }
+    };
+
+    fetch("http://localhost:3000/submit-lost-item", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(item)
+    })
+    .then(response => response.json())
+    .then(data => {
+        alert(data.message || "✅ Lost item submitted!");
+    })
+    .catch(error => {
+        console.error("❌ Error submitting item:", error);
+        alert("❌ Failed to submit item. Try again later.");
+    });
+}
+
+
+    </script>
+</body>
+</html>
