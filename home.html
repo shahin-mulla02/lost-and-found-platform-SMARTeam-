@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Home - Lost & Found</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+            height: 100vh;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1.5;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+           /* background: url('images/imagecopy.jpg') no-repeat center center fixed; /* Updated image path */
+            background-size: cover;
+            padding: 40px;
+            position: relative;
+        }
+
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 12px 20px;
+            font-size: 16px;
+            border: none;
+            background: #007bff;
+            color: white;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-button:hover {
+            transform: translateY(-3px);
+            background: #1c1d1d;
+        }
+
+        .header-container {
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            padding: 30px;
+            border-radius: 12px;
+            max-width: 600px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .header-container h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .header-container p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+
+        /* Login Button */
+        .login-button {
+            margin-top: 20px;
+            padding: 12px 25px;
+            font-size: 1.1rem;
+            border: none;
+            color: white;
+            background: #ff9800;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .login-button:hover {
+            transform: translateY(-3px);
+            background: #e68900;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Sidebar (Improved Styling) */
+        .sidebar {
+            flex: 1;
+            background: white;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-left: 5px solid #6e8efb;
+            box-shadow: -3px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 0 12px 12px 0;
+            text-align: left;
+            max-width: 400px;
+        }
+
+        .sidebar h2 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #6e8efb;
+        }
+
+        .sidebar p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .sidebar ul {
+            padding-left: 20px;
+        }
+
+        .sidebar li {
+            margin-bottom: 10px;
+            font-size: 15px;
+        }
+
+        .highlight-box {
+            background: #6e8efb;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="main-content">
+        <button class="back-button" onclick="window.location.href='index.html'">⬅ Back</button>
+
+        <div class="header-container">
+            <h1>Lost Something? Find It Here!</h1>
+            <p>
+                Welcome to our Lost & Found platform, where lost items find their way back home. Easily report missing belongings or check for found items in your area. Our system helps match lost and found reports efficiently.
+            </p>
+        </div>
+
+        <button class="login-button" onclick="window.location.href='login.html'">Login</button>
+    </div>
+
+    <div class="sidebar">
+        <h2>Why Use Our App?</h2>
+        <p>Lost an item? Our platform makes it easy to report and track lost and found items.</p>
+
+        <h2>Why Submit Found Items?</h2>
+        <p>Returning lost items creates trust and goodwill. You never know when you might need the same help!</p>
+
+        <h2>Security & Trust</h2>
+        <ul>
+            <li>Secure login with Google, GitHub, or LinkedIn.</li>
+            <li>Only verified users can claim lost items.</li>
+            <li>Your personal details remain protected.</li>
+        </ul>
+
+        <h2>🚔 Police Issues</h2>
+        <p>
+            Reporting lost items to the police can be a slow and difficult process. Here's why our app is a better alternative:
+        </p>
+        <ul>
+            <li>Police often take time to process and verify reports.</li>
+            <li>Many cases remain unsolved due to limited resources.</li>
+            <li>Our app allows <strong>quick and direct</strong> reporting without legal complexities.</li>
+            <li>Instant alerts help people return items <strong>faster than traditional methods</strong>.</li>
+        </ul>
+
+        <div class="highlight-box">
+            "Helping others recover lost items fosters a responsible and caring society!"
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
