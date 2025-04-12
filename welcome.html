@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Lost & Found Platform</title>
+</head>
+<body style="margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #fcdde2; display: flex; flex-direction: column; min-height: 100vh;">
+
+    <div class="splash-container" style="position: relative; width: 100vw; height: 100vh; display: flex; justify-content: center; align-items: center; overflow: hidden; flex-grow: 1; text-align: center;">
+        <img src="images/image1.jpg" alt="Lost & Found" style="width: 100%; height: auto; max-height: 100vh; object-fit: contain;">
+        <div class="splash-text" style="position: absolute; top: 5%; left: 50%; transform: translateX(-50%); color: #333; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); width: 90%;">
+            <h1 style="font-size: 2.5em; margin-bottom: 10px;">Welcome to Lost & Found</h1>
+            <p style="font-size: 1.2em;">Your community platform for reuniting lost items.</p>
+        </div>
+        <button class="continue-btn" onclick="window.location.href='home.html'" style="position: absolute; bottom: 5%; left: 50%; transform: translateX(-50%); padding: 18px 40px; font-size: 24px; background: linear-gradient(135deg, #ff6e7f, #b968c7); color: white; border: none; cursor: pointer; border-radius: 30px; box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); transition: transform 0.2s ease, box-shadow 0.2s ease; font-weight: 600;">Continue</button>
+    </div>
+    <a href="chat.html?roomId=12345" style="display:none;">
+        <button style="display:none;">Chat with Finder</button>
+    </a>
+
+    <footer style="background-color: #333; color: #eee; padding: 30px 20px; text-align: center; border-top: 2px solid #555; width: 100%;">
+        <div class="footer-content" style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-evenly; flex-wrap: nowrap;">
+            <div class="footer-section" style="flex: 1 1 23%; margin: 15px; box-sizing: border-box; min-width: 200px;">
+                <h4 style="color: #fff; margin-bottom: 10px;">About Us</h4>
+                <p style="font-size: 0.95em; line-height: 1.6;">Welcome to Lost & Found, your reliable platform for reuniting lost items with their owners. We are dedicated to providing a user-friendly and efficient experience, fostering a stronger community.</p>
+            </div>
+            <div class="footer-section" style="flex: 1 1 23%; margin: 15px; box-sizing: border-box; min-width: 200px;">
+                <h4 style="color: #fff; margin-bottom: 10px;">Contact Us</h4>
+                <p style="font-size: 0.95em; line-height: 1.6;">Email: <a href="mailto:info@lostandfound.com" style="color: #89cff0; text-decoration: none; transition: color 0.3s ease;">info@lostandfound.com</a></p>
+                <p style="font-size: 0.95em; line-height: 1.6;">Phone: +1 (123) 456-7890</p>
+                <p style="font-size: 0.95em; line-height: 1.6;">Address: 123 Main Street, City, Country</p>
+            </div>
+            <div class="footer-section" style="flex: 1 1 23%; margin: 15px; box-sizing: border-box; min-width: 200px;">
+                <h4 style="color: #fff; margin-bottom: 10px;">Follow Us</h4>
+                <a href="#" target="_blank" style="color: #89cff0; text-decoration: none; transition: color 0.3s ease; display: block; margin-bottom: 5px;">Facebook</a>
+                <a href="#" target="_blank" style="color: #89cff0; text-decoration: none; transition: color 0.3s ease; display: block; margin-bottom: 5px;">Twitter</a>
+                <a href="#" target="_blank" style="color: #89cff0; text-decoration: none; transition: color 0.3s ease;">Instagram</a>
+            </div>
+            <div class="footer-section" style="flex: 1 1 23%; margin: 15px; box-sizing: border-box; min-width: 200px;">
+                <h4 style="color: #fff; margin-bottom: 10px;">Legal</h4>
+                <a href="privacy.html" style="color: #89cff0; text-decoration: none; transition: color 0.3s ease; display: block; margin-bottom: 5px;">Privacy Policy</a>
+                <a href="terms.html" style="color: #89cff0; text-decoration: none; transition: color 0.3s ease;">Terms of Service</a>
+            </div>
+        </div>
+        <div class="footer-bottom" style="width: 100%; margin-top: 20px;">
+            <p style="font-size: 0.9em;">&copy; 2024 Lost & Found Platform. All rights reserved.</p>
+        </div>
+    </footer>
+  <!-- Play & Learn Button -->
+<a href="game.html" 
+style="
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  padding: 16px 35px;
+  background: linear-gradient(135deg, #ff6e7f, #b968c7);
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  z-index: 999;
+"
+onmouseover="this.style.transform='scale(1.1)'"
+onmouseout="this.style.transform='scale(1)'">
+🎮 Play & Learn
+</a>
+
+<!-- Info Message Below Button -->
+<div style="
+  position: absolute;
+  top: 90px;
+  right: 25px;
+  max-width: 280px;
+  background-color: #fff4f7;
+  border-left: 6px solid #ff6e7f;
+  padding: 15px 20px;
+  font-size: 17px;
+  color: #333;
+  font-weight: 500;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  z-index: 998;
+  line-height: 1.4;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+💡 A fun and interactive way to understand<br>how our platform works!
+</div>
+
+
+
+      
+      </body>
+</html>
